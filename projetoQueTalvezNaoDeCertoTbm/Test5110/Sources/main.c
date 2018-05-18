@@ -72,6 +72,7 @@ void setSpeed(int blue)
 	PWM1_SetDutyMS(speed);
 	//itoa
 	//PDC1_WriteLineStr(2, "0000");
+	//teste
 
 }
 
