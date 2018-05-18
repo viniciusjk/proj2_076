@@ -1,0 +1,220 @@
+!SESSION 2018-05-17 21:00:07.257 -----------------------------------------------
+eclipse.buildId=I20070613-1755
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en
+Command-line arguments:  -os win32 -ws win32 -arch x86 -data C:\Users\ea076\Desktop\projetoQueTalvezNaoDeCertoTbmV2
+
+This is a continuation of log file C:\Users\ea076\Desktop\projetoQueTalvezNaoDeCertoTbmV2\.metadata\.bak_1.log
+Created Time: 2018-05-17 21:43:18.569
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2018-05-17 21:43:18.569
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: CWVariable was not properly released
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.core.cdi.model.VariableDescriptor.finalize(VariableDescriptor.java:258)
+	at java.lang.ref.Finalizer.invokeFinalizeMethod(Native Method)
+	at java.lang.ref.Finalizer.runFinalizer(Unknown Source)
+	at java.lang.ref.Finalizer.access$100(Unknown Source)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2018-05-17 22:13:58.246
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Unexpected format.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.core.cdi.model.AbstractVariable.translateFormat(AbstractVariable.java:122)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Variable.getValue(Variable.java:172)
+	at org.eclipse.cdt.debug.internal.core.model.CLocalVariable$InternalVariable.getValue(CLocalVariable.java:229)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.getValue(CVariable.java:285)
+	at org.eclipse.cdt.debug.internal.ui.elements.adapters.CVariableLabelProvider.getLabel(CVariableLabelProvider.java:47)
+	at org.eclipse.debug.internal.ui.model.elements.ElementLabelProvider.getLabel(ElementLabelProvider.java:312)
+	at org.eclipse.debug.internal.ui.model.elements.ElementLabelProvider.retrieveLabel(ElementLabelProvider.java:215)
+	at org.eclipse.debug.internal.ui.model.elements.ElementLabelProvider$LabelUpdater.run(ElementLabelProvider.java:160)
+	at org.eclipse.debug.internal.ui.model.elements.ElementLabelProvider$LabelJob.run(ElementLabelProvider.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2018-05-17 22:13:58.249
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Unexpected format.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.core.cdi.model.AbstractVariable.translateFormat(AbstractVariable.java:122)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Variable.getValue(Variable.java:172)
+	at org.eclipse.cdt.debug.internal.core.model.CLocalVariable$InternalVariable.getValue(CLocalVariable.java:229)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.getValue(CVariable.java:285)
+	at org.eclipse.debug.internal.ui.model.elements.VariableContentProvider.hasChildren(VariableContentProvider.java:62)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider.updateHasChildren(ElementContentProvider.java:223)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider$3.run(ElementContentProvider.java:200)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2018-05-17 22:20:08.149
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: CWVariable was not properly released
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.core.cdi.model.VariableDescriptor.finalize(VariableDescriptor.java:258)
+	at java.lang.ref.Finalizer.invokeFinalizeMethod(Native Method)
+	at java.lang.ref.Finalizer.runFinalizer(Unknown Source)
+	at java.lang.ref.Finalizer.access$100(Unknown Source)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2018-05-17 22:23:29.711
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: m_cwVariable was not null when setting new value.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.core.cdi.model.VariableDescriptor.setCWVariable(VariableDescriptor.java:187)
+	at com.freescale.cdt.debug.cw.core.cdi.model.GlobalVariableDescriptor.getCheckedCWVariable(GlobalVariableDescriptor.java:43)
+	at com.freescale.cdt.debug.cw.core.cdi.model.VariableDescriptor.getType(VariableDescriptor.java:346)
+	at org.eclipse.cdt.debug.internal.core.model.CGlobalVariable$InternalVariable.getType(CGlobalVariable.java:156)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.getType(CVariable.java:200)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.canCastToArray(CVariable.java:371)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.setInitialFormat(CVariable.java:922)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.<init>(CVariable.java:167)
+	at org.eclipse.cdt.debug.internal.core.model.CGlobalVariable.<init>(CGlobalVariable.java:354)
+	at org.eclipse.cdt.debug.internal.core.model.CVariableFactory.createGlobalVariable(CVariableFactory.java:103)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.createGlobalVariable(CDebugTarget.java:1974)
+	at org.eclipse.cdt.debug.internal.core.CGlobalVariableManager.addGlobals(CGlobalVariableManager.java:110)
+	at org.eclipse.cdt.debug.internal.core.CGlobalVariableManager.getGlobals(CGlobalVariableManager.java:89)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getContentForVariableView(Target.java:4712)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getAllChildren(Target.java:4646)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getChildCount(Target.java:4661)
+	at org.eclipse.cdt.debug.internal.ui.elements.adapters.CDebugTargetContentProvider.getChildCount(CDebugTargetContentProvider.java:83)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider.retrieveChildCount(ElementContentProvider.java:114)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider$2.run(ElementContentProvider.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2018-05-17 22:23:29.717
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: cwdbg.Variable already set
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.core.cdi.model.VariableDescriptor.setCWVariable(VariableDescriptor.java:158)
+	at com.freescale.cdt.debug.cw.core.cdi.model.GlobalVariableDescriptor.getCheckedCWVariable(GlobalVariableDescriptor.java:43)
+	at com.freescale.cdt.debug.cw.core.cdi.model.VariableDescriptor.getType(VariableDescriptor.java:346)
+	at org.eclipse.cdt.debug.internal.core.model.CGlobalVariable$InternalVariable.getType(CGlobalVariable.java:156)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.getType(CVariable.java:200)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.canCastToArray(CVariable.java:371)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.setInitialFormat(CVariable.java:922)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.<init>(CVariable.java:167)
+	at org.eclipse.cdt.debug.internal.core.model.CGlobalVariable.<init>(CGlobalVariable.java:354)
+	at org.eclipse.cdt.debug.internal.core.model.CVariableFactory.createGlobalVariable(CVariableFactory.java:103)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.createGlobalVariable(CDebugTarget.java:1974)
+	at org.eclipse.cdt.debug.internal.core.CGlobalVariableManager.addGlobals(CGlobalVariableManager.java:110)
+	at org.eclipse.cdt.debug.internal.core.CGlobalVariableManager.getGlobals(CGlobalVariableManager.java:89)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getContentForVariableView(Target.java:4712)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getAllChildren(Target.java:4646)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getChildCount(Target.java:4661)
+	at org.eclipse.cdt.debug.internal.ui.elements.adapters.CDebugTargetContentProvider.getChildCount(CDebugTargetContentProvider.java:83)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider.retrieveChildCount(ElementContentProvider.java:114)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider$2.run(ElementContentProvider.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2018-05-17 22:25:32.658
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: cwdbg.Variable already set
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.core.cdi.model.VariableDescriptor.setCWVariable(VariableDescriptor.java:158)
+	at com.freescale.cdt.debug.cw.core.cdi.model.GlobalVariableDescriptor.getCheckedCWVariable(GlobalVariableDescriptor.java:43)
+	at com.freescale.cdt.debug.cw.core.cdi.model.VariableDescriptor.getType(VariableDescriptor.java:346)
+	at org.eclipse.cdt.debug.internal.core.model.CGlobalVariable$InternalVariable.getType(CGlobalVariable.java:156)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.getType(CVariable.java:200)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.canCastToArray(CVariable.java:371)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.setInitialFormat(CVariable.java:922)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.<init>(CVariable.java:167)
+	at org.eclipse.cdt.debug.internal.core.model.CGlobalVariable.<init>(CGlobalVariable.java:354)
+	at org.eclipse.cdt.debug.internal.core.model.CVariableFactory.createGlobalVariable(CVariableFactory.java:103)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.createGlobalVariable(CDebugTarget.java:1974)
+	at org.eclipse.cdt.debug.internal.core.CGlobalVariableManager.addGlobals(CGlobalVariableManager.java:110)
+	at org.eclipse.cdt.debug.internal.core.CGlobalVariableManager.getGlobals(CGlobalVariableManager.java:89)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getContentForVariableView(Target.java:4712)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getAllChildren(Target.java:4646)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getChildCount(Target.java:4661)
+	at org.eclipse.cdt.debug.internal.ui.elements.adapters.CDebugTargetContentProvider.getChildCount(CDebugTargetContentProvider.java:83)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider.retrieveChildCount(ElementContentProvider.java:114)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider$2.run(ElementContentProvider.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2018-05-17 22:25:32.664
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: cwdbg.Variable already set
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.core.cdi.model.VariableDescriptor.setCWVariable(VariableDescriptor.java:158)
+	at com.freescale.cdt.debug.cw.core.cdi.model.GlobalVariableDescriptor.getCheckedCWVariable(GlobalVariableDescriptor.java:43)
+	at com.freescale.cdt.debug.cw.core.cdi.model.VariableDescriptor.getType(VariableDescriptor.java:346)
+	at org.eclipse.cdt.debug.internal.core.model.CGlobalVariable$InternalVariable.getType(CGlobalVariable.java:156)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.getType(CVariable.java:200)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.canCastToArray(CVariable.java:371)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.setInitialFormat(CVariable.java:922)
+	at org.eclipse.cdt.debug.internal.core.model.CVariable.<init>(CVariable.java:167)
+	at org.eclipse.cdt.debug.internal.core.model.CGlobalVariable.<init>(CGlobalVariable.java:354)
+	at org.eclipse.cdt.debug.internal.core.model.CVariableFactory.createGlobalVariable(CVariableFactory.java:103)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.createGlobalVariable(CDebugTarget.java:1974)
+	at org.eclipse.cdt.debug.internal.core.CGlobalVariableManager.addGlobals(CGlobalVariableManager.java:110)
+	at org.eclipse.cdt.debug.internal.core.CGlobalVariableManager.getGlobals(CGlobalVariableManager.java:89)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getContentForVariableView(Target.java:4712)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getAllChildren(Target.java:4646)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.getChildCount(Target.java:4661)
+	at org.eclipse.cdt.debug.internal.ui.elements.adapters.CDebugTargetContentProvider.getChildCount(CDebugTargetContentProvider.java:83)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider.retrieveChildCount(ElementContentProvider.java:114)
+	at org.eclipse.debug.internal.ui.model.elements.ElementContentProvider$2.run(ElementContentProvider.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.debug.core 4 2 2018-05-17 22:34:13.629
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1265)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2606)
+	at org.eclipse.debug.internal.ui.stringsubstitution.SelectedResourceManager.getActiveWindow(SelectedResourceManager.java:236)
+	at org.eclipse.debug.ui.DebugUITools.getDebugContext(DebugUITools.java:225)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.update(RemoveAllGlobalsActionDelegate.java:99)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.handleDebugEvents(RemoveAllGlobalsActionDelegate.java:131)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.debug.core 4 125 2018-05-17 22:34:13.630
+!MESSAGE An exception occurred while dispatching debug events.
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1265)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2606)
+	at org.eclipse.debug.internal.ui.stringsubstitution.SelectedResourceManager.getActiveWindow(SelectedResourceManager.java:236)
+	at org.eclipse.debug.ui.DebugUITools.getDebugContext(DebugUITools.java:225)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.update(RemoveAllGlobalsActionDelegate.java:99)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.handleDebugEvents(RemoveAllGlobalsActionDelegate.java:131)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2018-05-17 22:34:14.860
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: CWVariable was not properly released
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.core.cdi.model.VariableDescriptor.finalize(VariableDescriptor.java:258)
+	at java.lang.ref.Finalizer.invokeFinalizeMethod(Native Method)
+	at java.lang.ref.Finalizer.runFinalizer(Unknown Source)
+	at java.lang.ref.Finalizer.access$100(Unknown Source)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Unknown Source)
+
+!ENTRY org.eclipse.core.jobs 2 2 2018-05-17 22:34:16.503
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.core.DebugPlugin$EventDispatchJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2018-05-17 22:34:16.503
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob$ProgressUpdateJob
