@@ -64,7 +64,7 @@
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 
 void setSpeed(int blue)
-
+//dfadfa
 {
 	
 	int speed=0;
@@ -73,6 +73,7 @@ void setSpeed(int blue)
 	//itoa
 	//PDC1_WriteLineStr(2, "0000");
 	//teste
+	//s
 
 }
 
