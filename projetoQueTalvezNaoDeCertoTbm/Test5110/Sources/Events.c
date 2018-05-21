@@ -39,6 +39,7 @@ int cnt = 0;
 char bufferAux[20];
 int flag_ReadNumber = 0;
 
+
 #ifdef __cplusplus
 extern "C" {
 #endif 
@@ -133,8 +134,16 @@ int j =0;
 		 bufferAux[cnt]=val;
 		 cnt++;
 		 flag_leitura = 0;
+
+
+							
+		/*if ( (strcmp(bufferAux, "VEL") == 0 || strcmp(bufferAux, "ANO") == 0 || 
+				strcmp(bufferAux, "MÊS") == 0 || strcmp(bufferAux, "SEM") == 0 \
+				|| strcmp(bufferAux, "HORA") == 0 || strcmp(bufferAux, "MIN" == 0)|| strcmp(bufferAux, "SEG") == 0)){ */
+			
+			if ( (strcmp(bufferAux, "VEL") == 0 || strcmp(bufferAux, "ANO") == 0)   || (strcmp(bufferAux, "DIA") == 0 || strcmp(bufferAux, "MES") == 0) || strcmp(bufferAux, "HORA") == 0 || strcmp(bufferAux, "SEM") == 0|| strcmp(bufferAux, "MIN") == 0|| strcmp(bufferAux, "SEG") == 0){//{
 		 
-		if ( strcmp(bufferAux, "VEL") == 0){
+			//if ( strcmp(bufferAux, "VEL") == 0 ) {
 			
 				strcpy(buffer, bufferAux);
 				

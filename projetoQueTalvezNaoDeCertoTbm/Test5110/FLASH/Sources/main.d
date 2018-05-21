@@ -58,7 +58,13 @@ Sources/main.o: ../Sources/main.c \
  C:/Users/ea076/Desktop/projetoQueTalvezNaoDeCertoTbmV2/projetoQueTalvezNaoDeCertoTbm/Test5110/Generated_Code/AS1.h \
  C:/Users/ea076/Desktop/projetoQueTalvezNaoDeCertoTbmV2/projetoQueTalvezNaoDeCertoTbm/Test5110/Generated_Code/ASerialLdd1.h \
  C:/Users/ea076/Desktop/projetoQueTalvezNaoDeCertoTbmV2/projetoQueTalvezNaoDeCertoTbm/Test5110/Generated_Code/ASerialLdd1.h \
- C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/extras/extras_stdlib.h
+ C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/extras/extras_stdlib.h \
+ C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/string.h \
+ C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstring \
+ C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/null.h \
+ C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h \
+ C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h \
+ C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h
 
 C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -179,3 +185,15 @@ C:/Users/ea076/Desktop/projetoQueTalvezNaoDeCertoTbmV2/projetoQueTalvezNaoDeCert
 C:/Users/ea076/Desktop/projetoQueTalvezNaoDeCertoTbmV2/projetoQueTalvezNaoDeCertoTbm/Test5110/Generated_Code/ASerialLdd1.h:
 
 C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/extras/extras_stdlib.h:
+
+C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/string.h:
+
+C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstring:
+
+C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/null.h:
+
+C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/size_t.h:
+
+C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_rsize_t.h:
+
+C:/Freescale/CW_MCU_v10.6/MCU/ARM_GCC_Support/ewl/EWL_C/include/string_api.h:

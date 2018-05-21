@@ -56,28 +56,30 @@
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include <extras/extras_stdlib.h>
+#include <string.h>
+//strcat
 
 
 #define EXAUSTOR Bit1_PutVal(0); Bit2_PutVal(1); PDC1_ClearLine(0); PDC1_WriteLineStr(1, "OK EXAUST");
 #define VENTILADOR Bit1_PutVal(1); Bit2_PutVal(0); PDC1_ClearLine(0); PDC1_WriteLineStr(1, "OK VENT");
 #define PARADO Bit1_PutVal(0); Bit2_PutVal(0);
+#define PARAMETROINC PDC1_ClearLine(1); PDC1_WriteLineStr(2,"PARÂMETRO INCORRETO"); PDC1_ClearLine(2);
+#define ESCREVEVEL itoa(blue,blueChar,10); PDC1_ClearLine(1);  strcat(blueChar, " %");  PDC1_WriteLineStr(2,blueChar);
+#define ESCREVEVAL itoa(blue,blueChar,10); PDC1_ClearLine(1); PDC1_ClearLine(2);  PDC1_WriteLineStr(2,blueChar);
+#define INEX PDC1_ClearLine(1);PDC1_ClearLine(2); PDC1_WriteLineStr(2,"PARÂMETRO INEXISTENTE"); PDC1_ClearLine(2);
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 
 void setSpeed(int blue)
-//dfadfa
+
 {
-	
 	int speed=0;
 	speed = 100-blue;
 	PWM1_SetDutyMS(speed);
-	//itoa
-	//PDC1_WriteLineStr(2, "0000");
-	//teste
-	//s
 
 }
 
 void delay(int seconds){
+	
 	int j =0;
 	seconds = seconds*480000;
 	  while (j<=seconds){
@@ -91,6 +93,8 @@ int blue = 0;
 int flag_leitura = 0;
 int lastBlue = 0;
 char blueChar[20];
+int flag_comando_feito=0;
+
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */
 {
@@ -102,88 +106,237 @@ int main(void)
 
   /* Write your code here */
    /* For example: for(;;) { } */
- /* 
-  PDC1_WriteLineStr(1, "Hello World");
-  PDC1_WriteLineStr(2, "from the");
-  PDC1_WriteLineStr(3, "telefone do caio, vem de Zap");
-  PDC1_WriteLineStr(4, "11 942332370!");
-  PDC1_SetContrast(63);PDC1_ClearLine();
-  */
+ 
+  
   PDC1_SetContrast(63);
   
   
-  EXAUSTOR;
-  blue = 35;
-  setSpeed(blue);
   
   for (;;){
-	  
-	
 	  
 	 
 	  
 	  if (flag_leitura==1){
 		 
-		  //setSpeed(blue);
-		
-		  //PDC1_ClearLine(1);
 		  
 		  if(strcmp(buffer, "VENT") == 0){
 			  
-			  blue =90;
-
-			 
+			
+			  blue = lastBlue;
 			  PARADO;
-
 			  delay(7);
 			  
-		
-
+			  setSpeed(blue);
 			  VENTILADOR;
 			  
 			  PDC1_ClearLine(2);
-			  itoa(blue,blueChar,10);
+		
+			  ESCREVEVEL;
+			 
+			  flag_comando_feito=1;
+			  flag_leitura = 0;
 			  
-			  PDC1_WriteLineStr(2,blueChar);
-			  setSpeed(blue);
-			  
-			  }
+			  	  	  }
+		  
 		  else if(strcmp(buffer, "EXAUST") == 0){
 			
-			  blue = 100;
-			  PDC1_ClearLine(2);
-			  PDC1_WriteLineStr(2,itoa(blue,blueChar,10));
-			 
+	
+			 blue = lastBlue;
+			 ESCREVEVEL;
 			  PARADO;
 			  delay(7);
-			  EXAUSTOR;
-
 			  setSpeed(blue);
-		  }
+			  EXAUSTOR;
+			  
+			  flag_comando_feito = 1;
+			  flag_leitura = 0;
+		  	  	  	  	  	  	  }
 		  
 		  else if(strcmp(buffer, "PARA") == 0){
 			  
 			  lastBlue = blue;
 			  PDC1_WriteLineStr(1, "OK PARA");
+			  PDC1_ClearLine(1);
 			  PARADO;
+			  flag_comando_feito = 1;
+			  flag_leitura = 0;
 		  }
+		  
+		  
+/////////////////////////////////////////////////////////////////	
+		  
 		  
 		  else if (strcmp(buffer, "VEL") == 0){
+				
+			  if(blue == NULL) {
+					INEX;
+					
+				}
 			  
-			  setSpeed(blue);
+			  else if (blue<=100 && blue>=0){
+				  
+				  
+				  lastBlue = blue;
+				  setSpeed(blue);
+				  ESCREVEVEL;
+				  
+			  }
 			  
+			  else  {PARAMETROINC;}
 			  
-			  PDC1_ClearLine(2);
-			  PDC1_WriteLineStr(2,itoa(blue,blueChar,10));
-			  
+			  flag_comando_feito = 1; 
+			  flag_leitura = 0;
 		  }
 		  
 		  
-		  int i = 0;
-		  for (i=0;i<=19;i++){
-			  buffer[i] = 0;
+		  
+		  else if (strcmp(buffer, "ANO") == 0){
+			  
+			  if(blue == NULL) {
+					INEX;
+				}
+			  else if (blue<10000 && blue>=0){
+				  
+					ESCREVEVAL;
+					PDC1_ClearLine(2);
+					PDC1_WriteLineStr(3,"OK ANO");
+				  
 			  }
+			  else  {PARAMETROINC;}
+			  
+			  
+			  flag_comando_feito = 1;
+			  flag_leitura = 0;
+		  	  
+		  }
+		  
+		  
+		  else if (strcmp(buffer, "MES") == 0){
+			 
+			  if(blue == NULL) {
+					INEX;
+				}
+			  
+			  else if (blue<=12 && blue>=1){
+				  
+				  ESCREVEVAL;
+					 PDC1_ClearLine(2);
+					PDC1_WriteLineStr(3,"OK MES");
+				  
+			  }
+			  else  {PARAMETROINC;}
+			  flag_comando_feito = 1;
+			  flag_leitura = 0;
+		  }
+		  
+		  else if (strcmp(buffer, "DIA") == 0){
+			 
+			  if(blue == NULL) {
+					INEX;
+				}
+			  
+			  else if (blue<=31 && blue>=1){
+				  
+				  ESCREVEVAL;
+					 PDC1_ClearLine(2);
+					PDC1_WriteLineStr(3,"OK DIA");
+				  
+			  }
+			  else  {PARAMETROINC;}
+			  flag_comando_feito = 1;
+			  flag_leitura = 0;
+		  }
+		  
+		  else if (strcmp(buffer, "SEM") == 0){
+			  if(blue == NULL) {
+					INEX;
+				}
+			  else if (blue<8 && blue>=1){
+				  
+				  ESCREVEVAL;
+					 PDC1_ClearLine(2);
+					PDC1_WriteLineStr(3,"OK SEMANA");
+				  
+			  }
+			  else  {PARAMETROINC;}
+			  flag_comando_feito = 1;
+			  flag_leitura = 0;
+		  }
+		  
+		  else if (strcmp(buffer, "HORA") == 0){
+			  
+			  if(blue == NULL) {
+					INEX;
+				}
+			  
+			  else if (blue<25 && blue>=0){
+				  
+				  ESCREVEVAL;
+					 PDC1_ClearLine(2);
+					PDC1_WriteLineStr(3,"OK HORA");
+				  
+			  }
+			  else  {PARAMETROINC;}
+			  flag_comando_feito = 1;
+			  flag_leitura = 0;
+		  }
+		  
+		  else if (strcmp(buffer, "MIN") == 0){
+			  
+			  if(blue == NULL) {
+					INEX;
+				}
+			  else if (blue<60 && blue>=0){
+				  
+				  ESCREVEVAL;
+					 PDC1_ClearLine(2);
+					PDC1_WriteLineStr(3,"OK MIN");
+				  
+			  }
+			  else  {PARAMETROINC;}
+			  flag_comando_feito = 1;
+			  flag_leitura = 0;
+		  }
+		  
+		 else if (strcmp(buffer, "SEG") == 0){
+			  if(blue == NULL) {
+					INEX;
+				} 
+			  else if (blue<61 && blue>=0){
+				  
+				  ESCREVEVAL;
+					 PDC1_ClearLine(2);
+					PDC1_WriteLineStr(3,"OK SEG");
+				  
+			  }
+			  else  {PARAMETROINC;}
+			  flag_comando_feito = 1;
+			  flag_leitura = 0;
+		  	  }
+		  
+		  else if (flag_comando_feito == 0){
+			  PDC1_ClearLine(2); PDC1_WriteLineStr(2,"COMANDO INEXISTENTE");
+			  PDC1_ClearLine(2);
+			  flag_leitura = 0;
+			   }
+		  
+
+		  
+		  delay(14);
+		  PDC1_ClearLine(2);
+		  
+		  int i = 0;
+		  
+		  for (i=0;i<=19;i++){
+			  
+			  buffer[i] = 0;
+			  
+		  }
+		  
 	  }
+	  
+	  flag_comando_feito = 0;
+	  
   }
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
