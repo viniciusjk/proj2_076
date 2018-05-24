@@ -471,8 +471,8 @@ PE_DEBUGHALT();
     <Enabled v="Y" />
     <Properties>
       <Component_name v="WAIT1" />
-      <boolgroup name="Use Cycle Counter" v="Disabled" />
       <SDK v="MCUC1" />
+      <boolgroup name="Use Cycle Counter" v="Disabled" />
       <boolgroup name="Manual Clock Values" v="Disabled" />
       <Delay100usFunction v="Delay100US" />
       <boolgroup name="RTOS" v="Disabled" />
@@ -507,6 +507,7 @@ PE_DEBUGHALT();
         <Bits_per_pixel v="1" />
         <Window_capability v="no" />
         <Display_Memory_Write v="no" />
+        <use_RAM_Buffer v="yes" />
       </group>
       <Type v="LPH7366" />
       <Invert_Display v="no" />

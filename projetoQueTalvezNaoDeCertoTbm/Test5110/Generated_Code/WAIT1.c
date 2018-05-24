@@ -4,9 +4,9 @@
 **     Project     : Test5110
 **     Processor   : MKL25Z128VLK4
 **     Component   : Wait
-**     Version     : Component 01.082, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.079, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-05-17, 21:27, # CodeGen: 60
+**     Date/Time   : 2018-05-23, 19:18, # CodeGen: 62
 **     Abstract    :
 **          Implements busy waiting routines.
 **     Settings    :
@@ -279,8 +279,6 @@ void WAIT1_Init(void)
 #if WAIT1_CONFIG_USE_CYCLE_COUNTER
   /* init cycle counter */
   KIN1_InitCycleCounter();
-  KIN1_ResetCycleCounter();
-  KIN1_EnableCycleCounter();
 #endif
 }
 

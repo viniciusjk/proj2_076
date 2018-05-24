@@ -6,7 +6,7 @@
 **     Component   : McuLibConfig
 **     Version     : Component 01.008, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-05-17, 21:27, # CodeGen: 60
+**     Date/Time   : 2018-05-23, 19:18, # CodeGen: 62
 **     Abstract    :
 **
 **     Settings    :
@@ -75,7 +75,7 @@
     #include <stdbool.h> /* bool, true, false, ... */
   #endif
 
-  /* boolean values */
+  /* booloean values */
   #ifndef FALSE
     #define  FALSE  0x00u
   #endif

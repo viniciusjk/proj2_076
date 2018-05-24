@@ -63,11 +63,58 @@
 #define EXAUSTOR Bit1_PutVal(0); Bit2_PutVal(1); PDC1_ClearLine(0); PDC1_WriteLineStr(1, "OK EXAUST");
 #define VENTILADOR Bit1_PutVal(1); Bit2_PutVal(0); PDC1_ClearLine(0); PDC1_WriteLineStr(1, "OK VENT");
 #define PARADO Bit1_PutVal(0); Bit2_PutVal(0);
-#define PARAMETROINC PDC1_ClearLine(1); PDC1_WriteLineStr(2,"PARÂMETRO INCORRETO"); PDC1_ClearLine(2);
+//#define PARAMETROINC 
 #define ESCREVEVEL itoa(blue,blueChar,10); PDC1_ClearLine(1);  strcat(blueChar, " %");  PDC1_WriteLineStr(2,blueChar);
 #define ESCREVEVAL itoa(blue,blueChar,10); PDC1_ClearLine(1); PDC1_ClearLine(2);  PDC1_WriteLineStr(2,blueChar);
-#define INEX PDC1_ClearLine(1);PDC1_ClearLine(2); PDC1_WriteLineStr(2,"PARÂMETRO INEXISTENTE"); PDC1_ClearLine(2);
+//#define INEX PDC1_ClearLine(1);PDC1_ClearLine(2); PDC1_WriteLineStr(2,"PARÂMETRO INEXISTENTE"); PDC1_ClearLine(2);
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
+
+void PARAMETROINC(void){
+	 AS1_SendChar('P');WAIT1_Waitms(1);
+	 AS1_SendChar('A');WAIT1_Waitms(1); 
+	 AS1_SendChar('R');WAIT1_Waitms(1); 
+	 AS1_SendChar('A');WAIT1_Waitms(1);
+	 AS1_SendChar('M'); WAIT1_Waitms(1);
+	 AS1_SendChar('E');WAIT1_Waitms(1);
+	 AS1_SendChar('T');WAIT1_Waitms(1);
+	 AS1_SendChar('R');WAIT1_Waitms(1);
+	 AS1_SendChar('O'); WAIT1_Waitms(1);
+	 AS1_SendChar(' '); WAIT1_Waitms(1);
+	 AS1_SendChar('I');WAIT1_Waitms(1);
+	 AS1_SendChar('N');WAIT1_Waitms(1);
+	 AS1_SendChar('C');WAIT1_Waitms(1);
+	 AS1_SendChar('O');WAIT1_Waitms(1);
+	 AS1_SendChar('R');WAIT1_Waitms(1);
+	 AS1_SendChar('R');WAIT1_Waitms(1);
+	 AS1_SendChar('E');WAIT1_Waitms(1);
+	 AS1_SendChar('T');WAIT1_Waitms(1);
+	 AS1_SendChar('O');WAIT1_Waitms(1);
+}
+
+void INEX(void){
+	 AS1_SendChar('P');WAIT1_Waitms(1);
+	 AS1_SendChar('A');WAIT1_Waitms(1); 
+	 AS1_SendChar('R');WAIT1_Waitms(1); 
+	 AS1_SendChar('A');WAIT1_Waitms(1);
+	 AS1_SendChar('M'); WAIT1_Waitms(1);
+	 AS1_SendChar('E');WAIT1_Waitms(1);
+	 AS1_SendChar('T');WAIT1_Waitms(1);
+	 AS1_SendChar('R');WAIT1_Waitms(1);
+	 AS1_SendChar('O'); WAIT1_Waitms(1);
+	 AS1_SendChar(' '); WAIT1_Waitms(1);
+	 AS1_SendChar('I');WAIT1_Waitms(1);
+	 AS1_SendChar('N');WAIT1_Waitms(1);
+	 AS1_SendChar('E');WAIT1_Waitms(1);
+	 AS1_SendChar('X');WAIT1_Waitms(1);
+	 AS1_SendChar('I');WAIT1_Waitms(1);
+	 AS1_SendChar('S');WAIT1_Waitms(1);
+	 AS1_SendChar('T');WAIT1_Waitms(1);
+	 AS1_SendChar('E');WAIT1_Waitms(1);
+	 AS1_SendChar('N');WAIT1_Waitms(1);
+	 AS1_SendChar('T');WAIT1_Waitms(1);
+	 AS1_SendChar('E');WAIT1_Waitms(1);
+}
+
 
 void setSpeed(int blue)
 
@@ -154,7 +201,7 @@ int main(void)
 		  
 		  else if(strcmp(buffer, "PARA") == 0){
 			  
-			  lastBlue = blue;
+			 
 			  PDC1_WriteLineStr(1, "OK PARA");
 			  PDC1_ClearLine(1);
 			  PARADO;
@@ -169,7 +216,7 @@ int main(void)
 		  else if (strcmp(buffer, "VEL") == 0){
 				
 			  if(blue == NULL) {
-					INEX;
+					INEX();
 					
 				}
 			  
@@ -182,10 +229,11 @@ int main(void)
 				  
 			  }
 			  
-			  else  {PARAMETROINC;}
+			  else  {PARAMETROINC();}
 			  
 			  flag_comando_feito = 1; 
 			  flag_leitura = 0;
+			  lastBlue = blue;
 		  }
 		  
 		  
@@ -193,7 +241,7 @@ int main(void)
 		  else if (strcmp(buffer, "ANO") == 0){
 			  
 			  if(blue == NULL) {
-					INEX;
+					INEX();
 				}
 			  else if (blue<10000 && blue>=0){
 				  
@@ -202,7 +250,7 @@ int main(void)
 					PDC1_WriteLineStr(3,"OK ANO");
 				  
 			  }
-			  else  {PARAMETROINC;}
+			  else  {PARAMETROINC();}
 			  
 			  
 			  flag_comando_feito = 1;
@@ -214,7 +262,7 @@ int main(void)
 		  else if (strcmp(buffer, "MES") == 0){
 			 
 			  if(blue == NULL) {
-					INEX;
+					INEX();
 				}
 			  
 			  else if (blue<=12 && blue>=1){
@@ -224,7 +272,7 @@ int main(void)
 					PDC1_WriteLineStr(3,"OK MES");
 				  
 			  }
-			  else  {PARAMETROINC;}
+			  else  {PARAMETROINC();}
 			  flag_comando_feito = 1;
 			  flag_leitura = 0;
 		  }
@@ -232,7 +280,7 @@ int main(void)
 		  else if (strcmp(buffer, "DIA") == 0){
 			 
 			  if(blue == NULL) {
-					INEX;
+					INEX();
 				}
 			  
 			  else if (blue<=31 && blue>=1){
@@ -242,14 +290,14 @@ int main(void)
 					PDC1_WriteLineStr(3,"OK DIA");
 				  
 			  }
-			  else  {PARAMETROINC;}
+			  else  {PARAMETROINC();}
 			  flag_comando_feito = 1;
 			  flag_leitura = 0;
 		  }
 		  
 		  else if (strcmp(buffer, "SEM") == 0){
 			  if(blue == NULL) {
-					INEX;
+					INEX();
 				}
 			  else if (blue<8 && blue>=1){
 				  
@@ -258,7 +306,7 @@ int main(void)
 					PDC1_WriteLineStr(3,"OK SEMANA");
 				  
 			  }
-			  else  {PARAMETROINC;}
+			  else  {PARAMETROINC();}
 			  flag_comando_feito = 1;
 			  flag_leitura = 0;
 		  }
@@ -266,7 +314,7 @@ int main(void)
 		  else if (strcmp(buffer, "HORA") == 0){
 			  
 			  if(blue == NULL) {
-					INEX;
+					INEX();
 				}
 			  
 			  else if (blue<25 && blue>=0){
@@ -276,7 +324,7 @@ int main(void)
 					PDC1_WriteLineStr(3,"OK HORA");
 				  
 			  }
-			  else  {PARAMETROINC;}
+			  else  {PARAMETROINC();}
 			  flag_comando_feito = 1;
 			  flag_leitura = 0;
 		  }
@@ -284,7 +332,7 @@ int main(void)
 		  else if (strcmp(buffer, "MIN") == 0){
 			  
 			  if(blue == NULL) {
-					INEX;
+					INEX();
 				}
 			  else if (blue<60 && blue>=0){
 				  
@@ -293,14 +341,14 @@ int main(void)
 					PDC1_WriteLineStr(3,"OK MIN");
 				  
 			  }
-			  else  {PARAMETROINC;}
+			  else  {PARAMETROINC();}
 			  flag_comando_feito = 1;
 			  flag_leitura = 0;
 		  }
 		  
 		 else if (strcmp(buffer, "SEG") == 0){
 			  if(blue == NULL) {
-					INEX;
+					INEX();
 				} 
 			  else if (blue<61 && blue>=0){
 				  
@@ -309,14 +357,32 @@ int main(void)
 					PDC1_WriteLineStr(3,"OK SEG");
 				  
 			  }
-			  else  {PARAMETROINC;}
+			  else  {PARAMETROINC();}
 			  flag_comando_feito = 1;
 			  flag_leitura = 0;
 		  	  }
 		  
 		  else if (flag_comando_feito == 0){
-			  PDC1_ClearLine(2); PDC1_WriteLineStr(2,"COMANDO INEXISTENTE");
-			  PDC1_ClearLine(2);
+			  AS1_SendChar('C');WAIT1_Waitms(1);
+			  	 AS1_SendChar('O');WAIT1_Waitms(1); 
+			  	 AS1_SendChar('M');WAIT1_Waitms(1); 
+			  	 AS1_SendChar('A');WAIT1_Waitms(1);
+			  	 AS1_SendChar('N'); WAIT1_Waitms(1);
+			  	 AS1_SendChar('D');WAIT1_Waitms(1);
+			  	 AS1_SendChar('O');WAIT1_Waitms(1);
+			  	 AS1_SendChar(' ');WAIT1_Waitms(1);
+			  	 AS1_SendChar('I'); WAIT1_Waitms(1);
+			  	 AS1_SendChar('N'); WAIT1_Waitms(1);
+			  	 AS1_SendChar('E');WAIT1_Waitms(1);
+			  	 AS1_SendChar('X');WAIT1_Waitms(1);
+			  	 AS1_SendChar('I');WAIT1_Waitms(1);
+			  	 AS1_SendChar('S');WAIT1_Waitms(1);
+			  	 AS1_SendChar('T');WAIT1_Waitms(1);
+			  	 AS1_SendChar('E');WAIT1_Waitms(1);
+			  	 AS1_SendChar('N');WAIT1_Waitms(1);
+			  	 AS1_SendChar('T');WAIT1_Waitms(1);
+			  	 AS1_SendChar('E');WAIT1_Waitms(1);
+
 			  flag_leitura = 0;
 			   }
 		  

@@ -4,9 +4,9 @@
 **     Project     : Test5110
 **     Processor   : MKL25Z128VLK4
 **     Component   : Wait
-**     Version     : Component 01.082, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.079, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-05-17, 21:27, # CodeGen: 60
+**     Date/Time   : 2018-05-23, 19:18, # CodeGen: 62
 **     Abstract    :
 **          Implements busy waiting routines.
 **     Settings    :
@@ -92,6 +92,7 @@ extern "C" {
 #define WAIT1_NofCyclesMs(ms, hz)  ((ms)*((hz)/1000)) /* calculates the needed cycles based on bus clock frequency */
 #define WAIT1_NofCyclesUs(us, hz)  ((us)*(((hz)/1000)/1000)) /* calculates the needed cycles based on bus clock frequency */
 #define WAIT1_NofCyclesNs(ns, hz)  (((ns)*(((hz)/1000)/1000))/1000) /* calculates the needed cycles based on bus clock frequency */
+
 
 #define WAIT1_WAIT_C(cycles) \
      ( (cycles)<=10 ? \
@@ -195,11 +196,8 @@ void WAIT1_Waitms(uint16_t ms);
 ** ===================================================================
 */
 
-#if WAIT1_CONFIG_USE_RTOS_WAIT
-  #define WAIT1_WaitOSms(ms) vTaskDelay(ms/portTICK_PERIOD_MS) /* use FreeRTOS API */
-#else
-  #define WAIT1_WaitOSms(ms)  WAIT1_Waitms(ms) /* use normal wait */
-#endif
+#define WAIT1_WaitOSms(ms) \
+  WAIT1_Waitms(ms) /* no RTOS used, so use normal wait */
 /*
 ** ===================================================================
 **     Method      :  WAIT1_WaitOSms (component Wait)
@@ -210,6 +208,10 @@ void WAIT1_Waitms(uint16_t ms);
 **     Returns     : Nothing
 ** ===================================================================
 */
+
+#ifdef __cplusplus
+}  /* extern "C" */
+#endif
 
 void WAIT1_WaitLongCycles(uint32_t cycles);
 /*
@@ -247,10 +249,6 @@ void WAIT1_DeInit(void);
 */
 
 /* END WAIT1. */
-
-#ifdef __cplusplus
-}  /* extern "C" */
-#endif
 
 #endif
 /* ifndef __WAIT1_H */
