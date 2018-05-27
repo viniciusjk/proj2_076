@@ -32,12 +32,18 @@
 #include "Cpu.h"
 #include "Events.h"
 
-extern int blue;
-extern char buffer[20];
-extern int flag_leitura;
-int cnt = 0;
-char bufferAux[20];
-int flag_ReadNumber = 0;
+extern int blue; //recebemos a varíavel blue para passarmos
+				// os valores numericos lidos para o programa principal
+extern char buffer[20]; // variável externa para salvarmos a string lida
+extern int flag_leitura;  //flag para comunicarmos se a mensagem foi lida
+int cnt = 0;  // contador para iterarmos dentro do buffer
+char bufferAux[20];  // buffer auxliliar que recebe string diretamente do 
+					// bluetooth, só depois de processada a string, passamos
+					// seu valor para a variavel buffer, que se comunica com 
+					// o programa principal
+					
+int flag_ReadNumber = 0;  //flag para sabermos se a mensagem continha
+						// valores numericos
 
 
 #ifdef __cplusplus
@@ -95,41 +101,51 @@ int j =0;
 
 	
 
-	AS1_RecvChar(&val);
+	AS1_RecvChar(&val); //função para ler a string do bluetooth
 	int i = 0;
 	
 	
 	if (val == '*'){
-		  
+		  //se um * é lido significa que é o final da mensagem lida
+		  // e que podemos passar o valor do buffer auxiliar para o programa principal
 		
 		  cnt = 0;
-		 // blue = atoi(bufferAux);
+		 
 		  
 		  
-		  if (flag_ReadNumber == 1){
+		  if (flag_ReadNumber == 1){  
+			// se um número foi lido, convertemos essa string
+			// para int
 			  blue = atoi(bufferAux);
 			  flag_ReadNumber = 0;
 			  
 		  }
 		  
 		  else{
-			  
+			  // se não foi lido um numero,
+			  // passamos o bufferAux para a variável buffer, 
+			  // que se comunica com o programa principal
 		  strcpy(buffer, bufferAux);
 		  
 		  
 		  }
 		  
 		  for (i=0;i<=19;i++){
-			  //buffer[i] = bufferAux[i];
+			 // limpamos o vetor bufferAux para evitar futuros problemas com 
+			 // as nova strings escritas
 			  bufferAux[i]=0;
 		  }
 		  
-		  flag_leitura = 1;
+		  flag_leitura = 1; // setamos a flag_leitura para um e entrarmos nas funçÕes 
+							// do programa
 		  flag_ReadNumber = 0;
+	
 		 
 	  }
 	
 	else if (val != '\n' && val != '\f' && val != '\r' ){
+		// enquanto * não é lido, vamos salvando o valor do bluetooth
+		// no bufferAux
 		
 		 bufferAux[cnt]=val;
 		 cnt++;
@@ -137,23 +153,29 @@ int j =0;
 
 
 							
-		/*if ( (strcmp(bufferAux, "VEL") == 0 || strcmp(bufferAux, "ANO") == 0 || 
-				strcmp(bufferAux, "MÊS") == 0 || strcmp(bufferAux, "SEM") == 0 \
-				|| strcmp(bufferAux, "HORA") == 0 || strcmp(bufferAux, "MIN" == 0)|| strcmp(bufferAux, "SEG") == 0)){ */
+		
 			
-			if ( (strcmp(bufferAux, "VEL") == 0 || strcmp(bufferAux, "ANO") == 0)   || (strcmp(bufferAux, "DIA") == 0 || strcmp(bufferAux, "MES") == 0) || strcmp(bufferAux, "HORA") == 0 || strcmp(bufferAux, "SEM") == 0|| strcmp(bufferAux, "MIN") == 0|| strcmp(bufferAux, "SEG") == 0){//{
+			if ( (strcmp(bufferAux, "VEL") == 0 || strcmp(bufferAux, "ANO") == 0)   || \
+			(strcmp(bufferAux, "DIA") == 0 || strcmp(bufferAux, "MES") == 0) || \
+			strcmp(bufferAux, "HORA") == 0 || strcmp(bufferAux, "SEM") == 0|| strcmp(bufferAux, "MIN") == 0||\
+			strcmp(bufferAux, "SEG") == 0){
+				
+				// se na string temos um dos valores acima,
+				// temos um valor numerico passado
 		 
-			//if ( strcmp(bufferAux, "VEL") == 0 ) {
+			
 			
 				strcpy(buffer, bufferAux);
+				// copiamos a parte já copiada para  o buffer, pois esta parte da mensagem
+				// não será convertida para int, portanto é preciso salvar a parte não númerica primeiro
 				
 				  for (i=0;i<=2;i++){
-						  //buffer[i] = bufferAux[i];
-						  bufferAux[i]=0;
+
+						  bufferAux[i]=0;  // limpamos a parte já utilizada do buffer auxiliar
 				  }
 				  
 				cnt = 0;
-				flag_ReadNumber = 1;
+				flag_ReadNumber = 1;  // avisamos que existe váriavel numerica no mensagem do bluetooth por esta flag
 			
 			
 		}
